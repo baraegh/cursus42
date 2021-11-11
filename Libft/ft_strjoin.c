@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eel-ghan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 10:43:34 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/07 16:59:50 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/09 19:10:17 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!str)
 		return (0);
 	*str = '\0';
-	ft_strcat(str, s1);
-	ft_strcat(str, s2);
+	ft_strcat((char *)str, (char *)s1);
+	ft_strcat((char *)str, (char *)s2);
 	return (str);
 }

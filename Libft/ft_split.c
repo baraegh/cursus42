@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 18:45:52 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/07 16:52:31 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/11 01:23:18 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,3 +83,10 @@ char	**ft_split(char const *s, char c)
 	ptr[i] = 0;
 	return (ptr);
 }
+
+// int main ()
+// {
+// 	char **expected = ft_split("\0aa\0bbb", '\0');
+
+// 	printf("%s", *expected);
+// }

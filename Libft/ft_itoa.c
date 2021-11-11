@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 10:12:34 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/08 11:24:26 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/11 12:04:59 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,20 @@ static char	*ft_num_to_char(char *str, long n, long i, long size)
 		str[j--] = (n % 10) + '0';
 		n /= 10;
 	}
-	str[size + 1] = '\0';
+	str[size] = '\0';
 	return (str);
+}
+
+static char  *ft_putzero()
+{
+  char  *str;
+  
+  str = (char *) malloc(2 * sizeof(char));
+    if (!str)
+        return (0);
+  str[0] = '0';
+  str[1] = '\0';
+  return (str);
 }
 
 char	*ft_itoa(int n)
@@ -52,16 +64,13 @@ char	*ft_itoa(int n)
 	long	size;
 
 	nb = n;
+	if (nb == 0)
+		return (ft_putzero());
 	size = ft_count_digits(nb);
 	str = (char *) malloc((size + 1) * sizeof(char));
 	if (!str)
 		return (0);
 	i = 0;
-	if (nb == 0)
-	{
-		str[i] = '0';
-		return (str);
-	}
 	if (nb < 0)
 	{
 		nb = -nb;

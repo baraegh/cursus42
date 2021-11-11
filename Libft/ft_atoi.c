@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 13:18:55 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/10 22:10:08 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/11 12:58:38 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	ft_result(const char *str, int i)
 	return (result);
 }
 
-static int ft_check_over_long(const char *str)
+static int ft_is_over_long(const char *str)
 {
 	int	i;
 	int	digit_len;
@@ -63,9 +63,9 @@ int	ft_atoi(const char *str)
 	}
 	else if (*(str + i) == '+')
 		i++;
-	if (ft_check_over_long((str + i)) >= 20 && sign == 1)
+	if (ft_is_over_long((str + i)) >= 20 && sign == 1)
 		return (-1);
-	else if (ft_check_over_long((str + i)) >= 20 && sign == -1)
+	else if (ft_is_over_long((str + i)) >= 20 && sign == -1)
 		return (0);
 	else
 		return (sign * ft_result(str, i));

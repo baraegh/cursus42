@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 09:45:35 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/10 13:30:33 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/11 13:19:31 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	src = s;
 	while (n-- > 0)
 	{
-		if (*src == c)
+		if (*src == (char)c)
 			return ((void *)src);
 		src++;
 	}

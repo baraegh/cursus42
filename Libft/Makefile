@@ -6,7 +6,7 @@
 #    By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/05 14:04:23 by eel-ghan          #+#    #+#              #
-#    Updated: 2021/11/10 22:58:09 by eel-ghan         ###   ########.fr        #
+#    Updated: 2021/11/11 21:40:32 by eel-ghan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,6 @@ bonus:
 			echo "bonus"
 
 all: 		${NAME}
-
-ar :		all
 			${AR} ${LIBNAME} ${OBJS}
 
 cleanlib:

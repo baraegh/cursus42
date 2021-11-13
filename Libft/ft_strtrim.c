@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 11:02:03 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/12 02:03:59 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/12 23:11:59 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	if (!s1 || !set)
 		return (0);
-	if (s1[0] == '\0')
+	i = ft_count_left(s1, set);
+	if (i == ft_strlen(s1))
 		return (ft_strdup(""));
 	j = ft_count_right(s1, set);
-	i = ft_count_left(s1, set);
-	str = (char *) malloc((j - i + 2) * sizeof(char));
-	if (!str || !s1)
+    str = (char *) malloc((j - i + 2) * sizeof(char));
+	if (!str)
 		return (0);
 	x = 0;
 	while (i <= j)

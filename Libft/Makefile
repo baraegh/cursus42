@@ -6,7 +6,7 @@
 #    By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/05 14:04:23 by eel-ghan          #+#    #+#              #
-#    Updated: 2021/11/11 21:40:32 by eel-ghan         ###   ########.fr        #
+#    Updated: 2021/11/13 01:11:28 by eel-ghan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,28 +16,32 @@ SRCS	=	main.c ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c f
 			ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c \
 			ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 
-OBJS	= ${SRCS:.c=.o}
+SRCSBN	=	main.c ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
+			ft_lstdelone.c ft_lstclear.c
 
-NAME 	= run
+OBJS	=	${SRCS:.c=.o}
 
-CC 		= cc
+OBJSBN	=	${SRCSBN:.c=.o}
 
-RM 		= rm -f
+NAME 	=	run
 
-CFLAGS	= -Wall -Werror -Wextra
+CC 		=	cc ${CFLAGS}
 
-AR 		= ar rc
+RM 		=	rm -f
 
-LIBNAME	= libft.a
+CFLAGS	=	-Wall -Werror -Wextra
 
-.c.o:
-			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+AR 		=	ar rc
 
-${NAME}:	${OBJS}
+LIBNAME	=	libft.a
+
+
+${NAME}:	${OBJS} bonus
 			${CC} -o ${NAME} ${OBJS}
 
-bonus:	
-			echo "bonus"
+bonus:		${OBJSBN}
+			${CC} -o ${NAME} ${OBJSBN}
+			${AR} ${LIBNAME} ${OBJSBN}
 
 all: 		${NAME}
 			${AR} ${LIBNAME} ${OBJS}
@@ -47,6 +51,7 @@ cleanlib:
 
 clean:
 			${RM} ${OBJS}
+			${RM} ${OBJSBN}
 
 fclean:		clean
 			${RM} ${NAME}

@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 11:02:03 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/12 23:11:59 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/14 12:50:11 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (i == ft_strlen(s1))
 		return (ft_strdup(""));
 	j = ft_count_right(s1, set);
-    str = (char *) malloc((j - i + 2) * sizeof(char));
+	str = (char *) malloc((j - i + 2) * sizeof(char));
 	if (!str)
 		return (0);
 	x = 0;

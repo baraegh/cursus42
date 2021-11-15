@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 18:45:52 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/12 23:11:01 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/14 18:52:00 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,11 @@ char	**ft_split(char const *s, char c)
 	char	*str;
 	int		i;
 	int		len;
+
 	if (!s)
-	 	return (0);
+		return (0);
 	if (*s == '\0')
-		return((char **)ft_calloc(ft_count_tab(s, c),sizeof(char *)));
+		return ((char **)ft_calloc(2, sizeof(char *)));
 	ptr = (char **) malloc((ft_count_tab(s, c) + 1) * sizeof(char *));
 	if (!ptr)
 		return (0);

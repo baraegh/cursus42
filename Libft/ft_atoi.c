@@ -6,43 +6,35 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 13:18:55 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/11 12:58:38 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/14 16:04:34 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_result(const char *str, int i)
+static int	ft_result(const char *str, int i, int sign)
 {
-	int result;
-	
+	int	result;
+	int	count;
+
 	result = 0;
+	count = 1;
 	while (*(str + i))
 	{
 		if (*(str + i) >= '0' && *(str + i) <= '9')
+		{
 			result = result * 10 + (*(str + i) - '0');
+			count++;
+		}
 		else
 			break ;
 		i++;
 	}
+	if (count >= 20 && sign > 0)
+		return (-1);
+	else if (count >= 20 && sign < 0)
+		return (0);
 	return (result);
-}
-
-static int ft_is_over_long(const char *str)
-{
-	int	i;
-	int	digit_len;
-
-	i = 0;
-	while (!ft_isdigit(*(str + i)))
-		i++;
-	digit_len = 0;
-	while (ft_isdigit(*(str + i)))
-	{
-		i++;
-		digit_len++;
-	}
-	return (digit_len--);
 }
 
 int	ft_atoi(const char *str)
@@ -50,11 +42,13 @@ int	ft_atoi(const char *str)
 	unsigned int	i;
 	int				sign;
 
+	if (!*str)
+		return (0);
 	i = 0;
 	sign = 1;
 	while (*(str + i) == ' ' || *(str + i) == '\t' || *(str + i) == '\r'
-			|| *(str + i) == '\n' || *(str + i) == '\v' 
-			|| *(str + i) == '\f')
+		|| *(str + i) == '\n' || *(str + i) == '\v'
+		|| *(str + i) == '\f')
 		i++;
 	if (*(str + i) == '-')
 	{
@@ -63,10 +57,5 @@ int	ft_atoi(const char *str)
 	}
 	else if (*(str + i) == '+')
 		i++;
-	if (ft_is_over_long((str + i)) >= 20 && sign == 1)
-		return (-1);
-	else if (ft_is_over_long((str + i)) >= 20 && sign == -1)
-		return (0);
-	else
-		return (sign * ft_result(str, i));
+	return (sign * ft_result(str, i, sign));
 }

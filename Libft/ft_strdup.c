@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:16:50 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/12 21:56:25 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/14 12:45:10 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static char	*ft_strcpy(char *dest, const char *src)
 char	*ft_strdup(const char *s1)
 {
 	char	*p;
+
 	p = (char *) malloc(ft_strlen(s1) + 1);
 	if (!p)
 		return (0);

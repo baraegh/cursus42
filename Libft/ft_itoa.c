@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 10:12:34 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/11 12:04:59 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/14 12:19:53 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,16 @@ static char	*ft_num_to_char(char *str, long n, long i, long size)
 	return (str);
 }
 
-static char  *ft_putzero()
+static char	*ft_putzero(void)
 {
-  char  *str;
-  
-  str = (char *) malloc(2 * sizeof(char));
-    if (!str)
-        return (0);
-  str[0] = '0';
-  str[1] = '\0';
-  return (str);
+	char	*str;
+
+	str = (char *) malloc(2 * sizeof(char));
+	if (!str)
+		return (0);
+	str[0] = '0';
+	str[1] = '\0';
+	return (str);
 }
 
 char	*ft_itoa(int n)

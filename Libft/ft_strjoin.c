@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 10:43:34 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/12 02:02:52 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/14 12:44:40 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char			*str;
 	unsigned int	s1_len;
 	unsigned int	s2_len;
-	
+
 	if (!s1 || !s2)
 		return (0);
 	s1_len = ft_strlen(s1);

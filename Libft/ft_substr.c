@@ -6,16 +6,30 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 10:21:47 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/12 02:39:28 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/14 13:01:48 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static char	*ft_sub(char *tab, char const *s, unsigned int start, size_t size)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		*(tab + i) = (char)s[start];
+		start++;
+		i++;
+	}
+	*(tab + i) = '\0';
+	return (tab);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char			*tab;
-	unsigned int	i;
 	size_t			size;
 
 	if (!s)
@@ -30,18 +44,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	else
 	{
-	 	tab = (char *) malloc((size - start + 1) * sizeof(char));
+		tab = (char *) malloc((size - start + 1) * sizeof(char));
 		size -= start;
 	}
 	if (!tab)
 		return (0);
-	i = 0;
-	while (i < size)
-	{
-		*(tab + i) = (char)s[start];
-		start++;
-		i++;
-	}
-	*(tab + i) = '\0';
-	return (tab);
+	return (ft_sub(tab, s, start, size));
 }

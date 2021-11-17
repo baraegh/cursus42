@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:29:50 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/14 12:40:25 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/16 13:47:22 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		return (0);
 	if (d > s)
 	{
-		while (len -- > 0)
+		while (len-- > 0)
 			d[len] = s[len];
 	}
 	else

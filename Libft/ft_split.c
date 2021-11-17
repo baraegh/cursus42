@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 18:45:52 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/14 18:52:00 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/16 20:42:49 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,13 @@ static void	ft_get_next_tab(char **s, int *len, char c)
 	}
 }
 
+char	**ft_freetab(char **ptr, int i)
+{
+	while (i >= 0)
+		free(ptr[i--]);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**ptr;
@@ -77,7 +84,7 @@ char	**ft_split(char const *s, char c)
 		ft_get_next_tab(&str, &len, c);
 		ptr[i] = (char *) malloc((len + 1) * sizeof(char));
 		if (!ptr[i])
-			return (0);
+			return (ft_freetab(ptr, i));
 		ft_strlcpy(ptr[i++], str, len + 1);
 	}
 	ptr[i] = 0;

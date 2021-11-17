@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 10:21:47 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/14 13:01:48 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/17 12:59:30 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char	*ft_sub(char *tab, char const *s, unsigned int start, size_t size)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < size)
@@ -37,7 +37,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size = ft_strlen(s);
 	if (start > size || len == 0)
 		return (ft_strdup(""));
-	else if (start + len < size)
+	if (start + len < size)
 	{
 		tab = (char *) malloc((len + 1) * sizeof(char));
 		size = len;

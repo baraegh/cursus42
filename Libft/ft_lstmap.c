@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 16:04:44 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/14 18:40:19 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/17 15:19:56 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		tmp = ft_lstnew(f(lst->content));
 		if (!tmp)
 		{
-			ft_lstclear(&newlst, del);
+			ft_lstclear(&tmp, del);
 			return (0);
 		}
 		ft_lstadd_back(&newlst, tmp);

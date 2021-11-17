@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 20:48:01 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/14 12:43:37 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/16 20:40:54 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ char	*ft_strchr(const char *s, int c)
 		s++;
 	}
 	if (c == '\0' && *s == '\0')
-		return ((char *)s--);
+		return ((char *)s);
 	return (0);
 }

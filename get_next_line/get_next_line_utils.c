@@ -123,5 +123,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	*str = '\0';
 	ft_strcat((char *)str, (char *)s1);
 	ft_strcat((char *)str, (char *)s2);
+	free((char *)s1);
 	return (str);
 }

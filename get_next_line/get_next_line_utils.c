@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen( char *s)
 {
 	size_t	i;
 
@@ -22,8 +22,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-
-static char	*ft_strcpy(char *dest, const char *src)
+static char	*ft_strcpy(char *dest, char *src)
 {
 	int		i;
 
@@ -38,7 +37,7 @@ static char	*ft_strcpy(char *dest, const char *src)
 	return (dest);
 }
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup(char *s1)
 {
 	char	*p;
 
@@ -50,7 +49,7 @@ char	*ft_strdup(const char *s1)
 }
 
 
-static char	*ft_sub(char *tab, char const *s, unsigned int start, size_t size)
+static char	*ft_sub(char *tab, char *s, unsigned int start, size_t size)
 {
 	size_t	i;
 
@@ -62,10 +61,11 @@ static char	*ft_sub(char *tab, char const *s, unsigned int start, size_t size)
 		i++;
 	}
 	*(tab + i) = '\0';
+	free(s);
 	return (tab);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, unsigned int start, size_t len)
 {
 	char			*tab;
 	size_t			size;
@@ -107,7 +107,7 @@ static char	*ft_strcat(char *dest, char *src)
 	return (dest);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char		*str;
 	size_t		s1_len;
@@ -123,6 +123,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	*str = '\0';
 	ft_strcat((char *)str, (char *)s1);
 	ft_strcat((char *)str, (char *)s2);
-	free((char *)s1);
+	free(s1);
 	return (str);
 }

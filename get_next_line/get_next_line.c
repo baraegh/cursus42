@@ -28,10 +28,17 @@ int ft_strchr(char *s, char c)
     return (-1);
 }
 
+char *free_buf(char *buf, char *str_read)
+{
+    free(str_read);
+    free(buf);
+    return (0);
+}
+
 char *get_next_line(int fd)
 {
     char        *buf;
-    static char        *str_read = NULL;
+    static char *str_read = NULL;
     char        *line;
     int         readed_bytes;
     int         index;
@@ -46,26 +53,20 @@ char *get_next_line(int fd)
     {
         readed_bytes = read(fd, buf, BUFFER_SIZE);
         if (readed_bytes == -1)
-        {
-            free(buf);
-            return (0);
-        }
+            return (free_buf(buf, str_read));
         buf[readed_bytes] = '\0';
-        str_read = ft_strjoin((const char *)str_read, (const char *)buf);
+        str_read = ft_strjoin(str_read, buf);
     }
     index = ft_strchr(str_read, '\n');
     if (index != -1 )
     {
-        line = ft_substr((const char *) str_read, 0, index + 1);
+        line = ft_substr(str_read, 0, index + 1);
         str_read = ft_strdup(str_read + index + 1);
         free(buf);
         return (line);
     }
-    else if (readed_bytes == 0 && !*str_read )
-    {
-        free(buf);
-        return (0);
-    }
+    else if (readed_bytes == 0 && !*str_read)
+        return (free_buf(buf, str_read));
     line = str_read;
     str_read = NULL;
     free(buf);
@@ -88,5 +89,6 @@ char *get_next_line(int fd)
 //     printf("%s", get_next_line(fd));
 //     printf("%s", get_next_line(fd));
 
+//     close(fd);
 //     return (0);
 // }

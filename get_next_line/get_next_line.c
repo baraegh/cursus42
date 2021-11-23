@@ -16,6 +16,8 @@ int ft_strchr(char *s, char c)
 {
     int i;
 
+    if (!s)
+        return (-1);
     i = 0;
     while (*(s + i))
     {
@@ -34,6 +36,7 @@ char *get_next_line(int fd)
     int         i;
     int         readed_bytes;
     int         index;
+    int         index2;
 
     if (fd < 0)
         return (0);
@@ -42,13 +45,23 @@ char *get_next_line(int fd)
         return (0);
     i = 0;
     readed_bytes = read(fd, buf, BUFFER_SIZE);
-    if(!*buf && !*str_read)
+    if(!*buf  && !*str_read)
+    {
+        free (str_read);
         return (0);
+    }
     while (readed_bytes != 0)
     {
         index = ft_strchr(buf, '\n');
-        if (index != -1 && readed_bytes != 0)
+        if (index != -1)
         {
+            index2 = ft_strchr(str_read, '\n');
+            if (index2 != -1)
+            {
+                line = ft_substr((const char *) str_read, 0, index2 + 1);
+                str_read = ft_strjoin(ft_strdup(&str_read[index2 + 1]), buf);
+                return (line);
+            }
             line = ft_strjoin(str_read, ft_substr((const char *) buf, 0, index + 1));
             str_read = ft_strdup(&buf[index + 1]);
             return (line);
@@ -68,17 +81,17 @@ char *get_next_line(int fd)
     return (line);
 }
 
-int main()
-{
-    int fd = open("file", O_RDONLY);
+// int main()
+// {
+//     int fd = open("file", O_RDONLY);
 
-    printf("%s", get_next_line(fd));
-    printf("%s", get_next_line(fd));
-    printf("%s", get_next_line(fd));
-    printf("%s", get_next_line(fd));
-    printf("%s", get_next_line(fd));
-    printf("%s", get_next_line(fd));
-    printf("%s", get_next_line(fd));
+//     printf("%s", get_next_line(fd));
+//     printf("%s", get_next_line(fd));
+//     printf("%s", get_next_line(fd));
+//     printf("%s", get_next_line(fd));
+//     printf("%s", get_next_line(fd));
+//     printf("%s", get_next_line(fd));
+//     printf("%s", get_next_line(fd));
 
-    return (0);
-}
+//     return (0);
+// }

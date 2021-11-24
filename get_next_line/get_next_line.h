@@ -18,8 +18,12 @@
 
 /*  TO BE DELETED    */
 # include <stdio.h>  //
-# include <fcntl.h>  //
+# include <fcntl.h>  // 
 /*###################*/
+
+# ifndef FD_MAX
+# define FD_MAX 10240
+# endif
 
 char	*get_next_line(int fd);
 char	*ft_substr(char *s, unsigned int start, size_t len);

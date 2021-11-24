@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 22:42:55 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/20 20:27:14 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/24 15:29:10 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,33 +21,6 @@ size_t	ft_strlen( char *s)
 		i++;
 	return (i);
 }
-
-static char	*ft_strcpy(char *dest, char *src)
-{
-	int		i;
-
-	i = 0;
-	while (*src)
-	{
-		*(dest + i) = *src;
-		src++;
-		i++;
-	}
-	*(dest + i) = '\0';
-	return (dest);
-}
-
-char	*ft_strdup(char *s1)
-{
-	char	*p;
-
-	p = (char *) malloc(ft_strlen(s1) + 1);
-	if (!p)
-		return (0);
-	ft_strcpy(p, s1);
-	return (p);
-}
-
 
 static char	*ft_sub(char *tab, char *s, unsigned int start, size_t size)
 {

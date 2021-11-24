@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 22:43:00 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/20 20:23:39 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/24 15:28:31 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <fcntl.h>  //
 /*###################*/
 
-char    *get_next_line(int fd);
+char	*get_next_line(int fd);
 char	*ft_substr(char *s, unsigned int start, size_t len);
 size_t	ft_strlen(char *s);
 char	*ft_strjoin(char *s1, char *s2);

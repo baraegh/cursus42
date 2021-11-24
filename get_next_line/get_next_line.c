@@ -28,10 +28,10 @@ int ft_strchr(char *s, char c)
     return (-1);
 }
 
-char *free_buf(char *buf, char *str_read)
+char *free_buf(char *str_read)
 {
     free(str_read);
-    free(buf);
+    str_read =  NULL;
     return (0);
 }
 
@@ -53,23 +53,29 @@ char *get_next_line(int fd)
     {
         readed_bytes = read(fd, buf, BUFFER_SIZE);
         if (readed_bytes == -1)
-            return (free_buf(buf, str_read));
+        {
+            free(buf);
+            return 0;
+        }
         buf[readed_bytes] = '\0';
         str_read = ft_strjoin(str_read, buf);
     }
+    free(buf);
+    if (readed_bytes == 0 && !*str_read)
+    {
+        free(str_read);
+        str_read = NULL;
+        return 0;
+    }
     index = ft_strchr(str_read, '\n');
-    if (index != -1 )
+    if (index != -1)
     {
         line = ft_substr(str_read, 0, index + 1);
         str_read = ft_strdup(str_read + index + 1);
-        free(buf);
         return (line);
     }
-    else if (readed_bytes == 0 && !*str_read)
-        return (free_buf(buf, str_read));
     line = str_read;
     str_read = NULL;
-    free(buf);
     return (line);
 }
 

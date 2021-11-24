@@ -114,15 +114,15 @@ char	*ft_strjoin(char *s1, char *s2)
 	size_t		s2_len;
 
 	if (!s1)
-		return (ft_strdup((char *)s2));
+		return (ft_strdup(s2));
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
 	str = (char *) malloc((s1_len + s2_len + 1) * sizeof(char));
 	if (!str)
 		return (0);
 	*str = '\0';
-	ft_strcat((char *)str, (char *)s1);
-	ft_strcat((char *)str, (char *)s2);
+	ft_strcat(str, s1);
+	ft_strcat(str, s2);
 	free(s1);
 	return (str);
 }

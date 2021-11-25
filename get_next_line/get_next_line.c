@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 22:42:38 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/24 15:27:16 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/25 15:58:10 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,25 +95,4 @@ char	*get_next_line(int fd)
 	}
 	free(buf);
 	return (ft_get_line(&str_saved, readed_bytes));
-}
-
-int main()
-{
-    int fd = open("file", O_RDONLY);
-
-    printf("%s", get_next_line(fd));
-    printf("%s", get_next_line(fd));
-    printf("%s", get_next_line(fd));
-    printf("%s", get_next_line(fd));
-    printf("%s", get_next_line(fd));
-    printf("%s", get_next_line(fd));
-    printf("%s", get_next_line(fd));
-    printf("%s", get_next_line(fd));
-    printf("%s", get_next_line(fd));
-    printf("%s", get_next_line(fd));
-    printf("%s", get_next_line(fd));
-
-
-    close(fd);
-    return (0);
 }

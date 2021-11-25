@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 22:43:00 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/24 15:28:31 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/25 15:56:44 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 /*###################*/
 
 # ifndef FD_MAX
-# define FD_MAX 10240
+#  define FD_MAX 10240
 # endif
 
 char	*get_next_line(int fd);

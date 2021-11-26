@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 20:42:26 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/25 15:57:59 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/26 13:51:11 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,10 @@ char	*ft_get_line(char **str_saved, int readed_bytes)
 char	*get_next_line(int fd)
 {
 	char		*buf;
-	static char	*str_saved[10241];
+	static char	*str_saved[FD_MAX + 1];
 	int			readed_bytes;
 
-	if (fd < 0 || BUFFER_SIZE < 0 || fd > FD_MAX)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > FD_MAX)
 		return (0);
 	buf = (char *) malloc(BUFFER_SIZE + 1);
 	if (!buf)
@@ -96,28 +96,3 @@ char	*get_next_line(int fd)
 	free(buf);
 	return (ft_get_line(&str_saved[fd], readed_bytes));
 }
-
-// int	main(void)
-// {
-// 	int	fd = open("file", O_RDONLY);
-// 	int	fd1 = open("file1", O_RDONLY);
-// 	int	fd2 = open("file2", O_RDONLY);
-
-//     printf("%s", get_next_line(fd));
-//     printf("%s", get_next_line(fd1));
-//     printf("%s", get_next_line(fd2));
-// 	printf("%s", get_next_line(fd));
-//     printf("%s", get_next_line(fd1));
-//     printf("%s", get_next_line(fd2));
-// 	printf("%s", get_next_line(fd));
-//     printf("%s", get_next_line(fd1));
-//     printf("%s", get_next_line(fd2));
-// 	printf("%s", get_next_line(fd));
-//     printf("%s", get_next_line(fd1));
-//     printf("%s", get_next_line(fd2));
-// 	printf("%s", get_next_line(fd));
-//     printf("%s", get_next_line(fd1));
-//     printf("%s", get_next_line(fd2));
-//     close(fd);
-//     return (0);
-// }

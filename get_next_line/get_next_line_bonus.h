@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 20:44:57 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/25 15:57:34 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/26 13:52:06 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-
-/*  TO BE DELETED    */
-# include <stdio.h>  //
-# include <fcntl.h>  // 
-/*###################*/
 
 # ifndef FD_MAX
 #  define FD_MAX 10240

@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 20:45:49 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/25 13:54:46 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/27 17:08:34 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,48 +22,7 @@ size_t	ft_strlen( char *s)
 	return (i);
 }
 
-static char	*ft_sub(char *tab, char *s, unsigned int start, size_t size)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < size)
-	{
-		*(tab + i) = (char)s[start];
-		start++;
-		i++;
-	}
-	*(tab + i) = '\0';
-	free(s);
-	return (tab);
-}
-
-char	*ft_substr(char *s, unsigned int start, size_t len)
-{
-	char			*tab;
-	size_t			size;
-
-	if (!s)
-		return (0);
-	size = ft_strlen(s);
-	if (start > size || len == 0)
-		return (ft_strdup(""));
-	if (start + len < size)
-	{
-		tab = (char *) malloc((len + 1) * sizeof(char));
-		size = len;
-	}
-	else
-	{
-		tab = (char *) malloc((size - start + 1) * sizeof(char));
-		size -= start;
-	}
-	if (!tab)
-		return (0);
-	return (ft_sub(tab, s, start, size));
-}
-
-static char	*ft_strcat(char *dest, char *src)
+char	*ft_strcat(char *dest, char *src)
 {
 	unsigned int	i;
 
@@ -87,7 +46,12 @@ char	*ft_strjoin(char *s1, char *s2)
 	size_t		s2_len;
 
 	if (!s1)
-		return (ft_strdup(s2));
+	{
+		s1 = (char *) malloc(sizeof(char));
+		*s1 = '\0';
+	}
+	if (!s1 || !s2)
+		return (0);
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
 	str = (char *) malloc((s1_len + s2_len + 1) * sizeof(char));
@@ -98,4 +62,39 @@ char	*ft_strjoin(char *s1, char *s2)
 	ft_strcat(str, s2);
 	free(s1);
 	return (str);
+}
+
+int	ft_strchr(char *s, char c)
+{
+	int	i;
+
+	if (!s)
+		return (-1);
+	i = 0;
+	while (*(s + i))
+	{
+		if (*(s + i) == c)
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
+char	*ft_copy(char *line, char *str_saved)
+{
+	int		i;
+
+	i = 0;
+	while (*(str_saved + i) && *(str_saved + i) != '\n')
+	{
+		*(line + i) = *(str_saved + i);
+		i++;
+	}
+	if (*(str_saved + i) == '\n')
+	{
+		*(line + i) = *(str_saved + i);
+		i++;
+	}
+	line[i] = '\0';
+	return (line);
 }

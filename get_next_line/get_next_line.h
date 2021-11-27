@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 22:43:00 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/25 18:03:03 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/27 17:00:34 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 # endif
 
 char	*get_next_line(int fd);
-char	*ft_substr(char *s, unsigned int start, size_t len);
 size_t	ft_strlen(char *s);
 char	*ft_strjoin(char *s1, char *s2);
-char	*ft_strdup(char *s1);
+int		ft_strchr(char *s, char c);
+char	*ft_copy(char *line, char *str_saved);
 
 #endif

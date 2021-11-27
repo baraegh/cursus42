@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 22:42:55 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/24 15:29:10 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/27 03:16:55 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,39 +63,72 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	return (ft_sub(tab, s, start, size));
 }
 
-static char	*ft_strcat(char *dest, char *src)
-{
-	unsigned int	i;
+// static char	*ft_strcat(char *dest, char *src)
+// {
+// 	unsigned int	i;
 
-	i = 0;
-	while (*(dest + i))
-		i++;
-	while (*src)
-	{
-		*(dest + i) = *src;
-		src++;
-		i++;
-	}
-	*(dest + i) = '\0';
-	return (dest);
-}
+// 	i = 0;
+// 	while (*(dest + i))
+// 		i++;
+// 	while (*src)
+// 	{
+// 		*(dest + i) = *src;
+// 		src++;
+// 		i++;
+// 	}
+// 	*(dest + i) = '\0';
+// 	return (dest);
+// }
+
+// char	*ft_strjoin(char *s1, char *s2)
+// {
+// 	char		*str;
+// 	size_t		s1_len;
+// 	size_t		s2_len;
+
+// 	if (!s1)
+// 	{
+// 		s1 = (char *) malloc(sizeof(char));
+// 		*s1 = '\0';
+// 	}
+// 	if (!s1 || !s2)
+// 		return (0);
+// 	s1_len = ft_strlen(s1);
+// 	s2_len = ft_strlen(s2);
+// 	str = (char *) malloc((s1_len + s2_len + 1) * sizeof(char));
+// 	if (!str)
+// 		return (0);
+// 	*str = '\0';
+// 	ft_strcat(str, s1);
+// 	ft_strcat(str, s2);
+// 	free(s1);
+// 	return (str);
+// }
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	char		*str;
-	size_t		s1_len;
-	size_t		s2_len;
+	size_t	i;
+	size_t	c;
+	char	*str;
 
 	if (!s1)
-		return (ft_strdup(s2));
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
-	str = (char *) malloc((s1_len + s2_len + 1) * sizeof(char));
-	if (!str)
-		return (0);
-	*str = '\0';
-	ft_strcat(str, s1);
-	ft_strcat(str, s2);
+	{
+		s1 = (char *)malloc(1 * sizeof(char));
+		s1[0] = '\0';
+	}
+	if (!s1 || !s2)
+		return (NULL);
+	str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (str == NULL)
+		return (NULL);
+	i = -1;
+	c = 0;
+	if (s1)
+		while (s1[++i] != '\0')
+			str[i] = s1[i];
+	while (s2[c] != '\0')
+		str[i++] = s2[c++];
+	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
 	free(s1);
 	return (str);
 }

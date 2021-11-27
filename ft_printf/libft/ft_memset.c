@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 20:44:57 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/27 01:54:32 by eel-ghan         ###   ########.fr       */
+/*   Created: 2021/11/02 12:26:36 by eel-ghan          #+#    #+#             */
+/*   Updated: 2021/11/16 13:40:41 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_BONUS_H
-# define GET_NEXT_LINE_BONUS_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-#include <limits.h>
+void	*ft_memset(void *b, int c, size_t len)
+{
+	unsigned char	*ptr;
 
-# ifndef FD_MAX
-#  define FD_MAX 10240
-# endif
-
-char	*get_next_line(int fd);
-char	*ft_substr(char *s, unsigned int start, size_t len);
-size_t	ft_strlen(char *s);
-char	*ft_strjoin(char *s1, char *s2);
-char	*ft_strdup(char *s1);
-
-#endif
+	ptr = b;
+	while (len-- > 0)
+		*(ptr++) = (unsigned char)c;
+	return (b);
+}

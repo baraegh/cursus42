@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 20:44:57 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/27 01:54:32 by eel-ghan         ###   ########.fr       */
+/*   Created: 2021/11/13 01:03:39 by eel-ghan          #+#    #+#             */
+/*   Updated: 2021/11/16 20:50:01 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_BONUS_H
-# define GET_NEXT_LINE_BONUS_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-#include <limits.h>
+void	ft_lstclear(t_list **lst, void (*del)(void*))
+{
+	t_list	*tmp;
 
-# ifndef FD_MAX
-#  define FD_MAX 10240
-# endif
-
-char	*get_next_line(int fd);
-char	*ft_substr(char *s, unsigned int start, size_t len);
-size_t	ft_strlen(char *s);
-char	*ft_strjoin(char *s1, char *s2);
-char	*ft_strdup(char *s1);
-
-#endif
+	if (!lst || !del)
+		return ;
+	tmp = *lst;
+	while (*lst)
+	{
+		tmp = tmp->next;
+		ft_lstdelone(*lst, del);
+		*lst = tmp;
+	}
+}

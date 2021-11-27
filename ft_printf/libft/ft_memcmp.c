@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 20:44:57 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/27 01:54:32 by eel-ghan         ###   ########.fr       */
+/*   Created: 2021/11/04 10:25:48 by eel-ghan          #+#    #+#             */
+/*   Updated: 2021/11/17 16:49:54 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_BONUS_H
-# define GET_NEXT_LINE_BONUS_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-#include <limits.h>
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	const unsigned char	*p1;
+	const unsigned char	*p2;
 
-# ifndef FD_MAX
-#  define FD_MAX 10240
-# endif
-
-char	*get_next_line(int fd);
-char	*ft_substr(char *s, unsigned int start, size_t len);
-size_t	ft_strlen(char *s);
-char	*ft_strjoin(char *s1, char *s2);
-char	*ft_strdup(char *s1);
-
-#endif
+	p1 = s1;
+	p2 = s2;
+	while (n > 0)
+	{
+		if (*p1 != *p2)
+			return (*p1 - *p2);
+		p1++;
+		p2++;
+		n--;
+	}
+	return (0);
+}

@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 20:44:57 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/27 01:54:32 by eel-ghan         ###   ########.fr       */
+/*   Created: 2021/11/03 10:49:15 by eel-ghan          #+#    #+#             */
+/*   Updated: 2021/11/14 12:40:05 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_BONUS_H
-# define GET_NEXT_LINE_BONUS_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-#include <limits.h>
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	size_t	i;
 
-# ifndef FD_MAX
-#  define FD_MAX 10240
-# endif
-
-char	*get_next_line(int fd);
-char	*ft_substr(char *s, unsigned int start, size_t len);
-size_t	ft_strlen(char *s);
-char	*ft_strjoin(char *s1, char *s2);
-char	*ft_strdup(char *s1);
-
-#endif
+	i = 0;
+	if (!dst && !src)
+		return (0);
+	while (i < n)
+	{
+		*((char *)(dst + i)) = *((char *)(src + i));
+		i++;
+	}
+	return (dst);
+}

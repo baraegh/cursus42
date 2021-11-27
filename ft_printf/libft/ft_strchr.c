@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 20:44:57 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/27 01:54:32 by eel-ghan         ###   ########.fr       */
+/*   Created: 2021/11/02 20:48:01 by eel-ghan          #+#    #+#             */
+/*   Updated: 2021/11/16 20:40:54 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_BONUS_H
-# define GET_NEXT_LINE_BONUS_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-#include <limits.h>
-
-# ifndef FD_MAX
-#  define FD_MAX 10240
-# endif
-
-char	*get_next_line(int fd);
-char	*ft_substr(char *s, unsigned int start, size_t len);
-size_t	ft_strlen(char *s);
-char	*ft_strjoin(char *s1, char *s2);
-char	*ft_strdup(char *s1);
-
-#endif
+char	*ft_strchr(const char *s, int c)
+{
+	while (*s)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	if (c == '\0' && *s == '\0')
+		return ((char *)s);
+	return (0);
+}

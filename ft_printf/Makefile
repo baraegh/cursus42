@@ -10,7 +10,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 AR = ar -rc
 
-RM = rn -f
+RM = rm -f
 
 ${NAME} :	${OBJS}
 			${AR} $@ $^

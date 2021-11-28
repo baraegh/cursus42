@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 21:10:29 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/28 16:56:10 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/28 19:22:42 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,30 +28,103 @@ int	ft_putchar(char c)
 	return (1);
 }
 
-void	ft_putnbr(int nb)
+int	ft_putnbr(int nb)
 {
 	char	number;
 	long	n;
+	int		count;
 
 	n = nb;
+	count = 0;
 	if (n < 0)
 	{
 		n *= -1;
-		ft_putchar('-');
+		count += ft_putchar('-');
 	}
 	if (n >= 10)
-		ft_putnbr(n / 10);
+		count += ft_putnbr(n / 10);
 	number = 48 + (n % 10);
-	ft_putchar(number);
+	count += ft_putchar(number);
+	return (count);
 }
 
-void ft_put_uint(unsigned int n)
+int ft_put_uint(unsigned int n)
 {
-	if (n < 0)
-		n = (UINT_MAX + 1) + n;
+	int	count;
+
+	count = 0;
 	if (n >= 10)
-		ft_put_uint(n / 10);
-	ft_putchar(48 + (n % 10));
+		count += ft_put_uint(n / 10);
+	count += ft_putchar(48 + (n % 10));
+	return (count);
+}
+
+int	ft_putstr(char *str)
+{
+	int	count;
+
+	if (!str)
+		return (ft_putstr("(null)"));
+	count = 0;
+	while (*str != '\0')
+	{
+		count += ft_putchar(*str);
+		str++;
+	}
+	return (count);
+}
+
+int ft_puthexa(unsigned int n, char *s)
+{
+	int count;
+
+	count = 0;
+	if (n > 15)
+		count += ft_puthexa(n / 16, s);
+	count += ft_putchar(s[n % 16]);
+	return (count);
+}
+
+int	ft_putptr(unsigned long int n, char *s)
+{
+	int count;
+
+	count = 0;
+	if (n > 15)
+		count += ft_putptr(n / 16, s);
+	count += ft_putchar(s[n % 16]);
+	return (count);
+}
+
+int ft_set_print(char c, va_list list)
+{
+	char	*x;
+	char	*X;
+	int		count;
+
+	x = "0123456789abcdef";
+	X = "0123456789ABCDEF";
+	count = 0;
+	if (c == 'c')
+		count += ft_putchar(va_arg(list, int));
+	else if (c == 's')
+		count += ft_putstr(va_arg(list, char *));
+	else if (c == 'd' || c == 'i')
+		count += ft_putnbr(va_arg(list, int));
+	else if (c == 'u')
+		count += ft_put_uint(va_arg(list, unsigned int));
+	else if (c == '%')
+		count += ft_putchar('%');
+	else if (c == 'x')
+		count += ft_puthexa(va_arg(list, int), x);
+	else if (c == 'X')
+		count += ft_puthexa(va_arg(list, int), X);
+	else if (c == 'p')
+	{
+		count += ft_putstr("0x");
+		count += ft_putptr(va_arg(list, unsigned long), x);
+	}
+	return (count);
 }
 
 int ft_check(char c)
@@ -67,59 +140,6 @@ int ft_check(char c)
 			return (1);
 		i++;
 	}
-	return (0);
-}
-
-void	ft_putstr(char *str)
-{
-	while (*str != '\0')
-	{
-		ft_putchar(*str);
-		str++;
-	}
-}
-
-void ft_puthexa(int n, char *s)
-{
-	unsigned int nb;
-
-	nb = n;
-	if (nb < 0)
-		nb = (UINT_MAX + 1) + nb;
-	if (nb > 15)
-		ft_puthexa(nb / 16, s);
-	ft_putchar(s[nb % 16]);
-}
-
-void	ft_putptr(void *ptr)
-{
-	ft_putstr("0x7ffe");
-	ft_puthexa((unsigned)&(*ptr), "0123456789abcdef");
-}
-
-int ft_set_print(char c, va_list list)
-{
-	char	*x;
-	char	*X;
-
-	x = "0123456789abcdef";
-	X = "0123456789ABCDEF";
-	if (c == 'c')
-		ft_putchar(va_arg(list, int));
-	else if (c == 's')
-		ft_putstr(va_arg(list, char *));
-	else if (c == 'd' || c == 'i')
-		ft_putnbr(va_arg(list, int));
-	else if (c == 'u')
-		ft_put_uint(va_arg(list, unsigned int));
-	else if (c == '%')
-		ft_putchar('%');
-	else if (c == 'x')
-		ft_puthexa(va_arg(list, int), x);
-	else if (c == 'X')
-		ft_puthexa(va_arg(list, int), X);
-	else if (c == 'p')
-		ft_putptr(va_arg(list, void *));
 	return (0);
 }
 
@@ -148,12 +168,14 @@ int	ft_printf(const char *format, ...)
 }
 
 
-int main()
-{
-	int n = 2;
-	int *p = &n;
+// int main()
+// {
+// 	// int n = 2;
+// 	// int *p = &n;
 
-	ft_printf("test : %p", p);
-	printf("\ntest : %p", p);
-	// printf("\ntest : 0x%u", (unsigned)&(*p));
-}
+// 	// ft_printf("test : %x", -123);
+// 	// printf("\ntest : %x", -123);
+// 	printf("\n->%d\n",ft_printf("test : %s", NULL));
+// 	printf("\n->%d",printf("test : %s", NULL));
+// 	// printf("\ntest : 0x%u", (unsigned)&(*p));
+// }

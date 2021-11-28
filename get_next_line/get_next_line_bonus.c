@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 20:42:26 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/27 17:12:38 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/27 19:59:08 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ char	*ft_read_save(int fd, char *buf, char *str_saved)
 char	*get_next_line(int fd)
 {
 	char		*buf;
-	static char	*str_saved[FD_MAX + 1];
+	static char	*str_saved[OPEN_MAX + 1];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)

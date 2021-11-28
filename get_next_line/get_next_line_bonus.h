@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 20:44:57 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/27 17:01:05 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/28 20:38:57 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-
-# ifndef FD_MAX
-#  define FD_MAX 10240
-# endif
+# include <limits.h>
 
 char	*get_next_line(int fd);
 size_t	ft_strlen(char *s);

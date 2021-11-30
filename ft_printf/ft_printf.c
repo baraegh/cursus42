@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 21:10:29 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/11/29 21:57:30 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/11/30 14:21:34 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	ft_printf(const char *format, ...)
 			count += ft_set_print(*(format + 1), list);
 			format++;
 		}
-		else
+		else if (*(format) != '%')
 			count += ft_putchar(*format);
 		format++;
 	}

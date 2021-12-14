@@ -4,5 +4,5 @@
 # Displays Error\n :
 					
 					@	some arguments are'nt integers
-					@	//		//	   are bigger than an integers
+				****@	//		//	   are bigger than an integers
 					@	//		//	   are duplicates

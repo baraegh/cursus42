@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/13 15:49:49 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/14 16:58:01 by eel-ghan         ###   ########.fr       */
+/*   Created: 2021/11/03 10:49:15 by eel-ghan          #+#    #+#             */
+/*   Updated: 2021/11/14 12:40:05 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-#define HEADER_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <libft/libft.h>
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	size_t	i;
 
-// void	ft_putstr_fd(char *s, int fd);
-
-#endif
+	i = 0;
+	if (!dst && !src)
+		return (0);
+	while (i < n)
+	{
+		*((char *)(dst + i)) = *((char *)(src + i));
+		i++;
+	}
+	return (dst);
+}

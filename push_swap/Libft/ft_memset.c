@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/13 15:49:49 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/14 16:58:01 by eel-ghan         ###   ########.fr       */
+/*   Created: 2021/11/02 12:26:36 by eel-ghan          #+#    #+#             */
+/*   Updated: 2021/11/16 13:40:41 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-#define HEADER_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <libft/libft.h>
+void	*ft_memset(void *b, int c, size_t len)
+{
+	unsigned char	*ptr;
 
-// void	ft_putstr_fd(char *s, int fd);
-
-#endif
+	ptr = b;
+	while (len-- > 0)
+		*(ptr++) = (unsigned char)c;
+	return (b);
+}

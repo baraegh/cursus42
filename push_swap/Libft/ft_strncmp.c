@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/13 15:49:49 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/14 16:58:01 by eel-ghan         ###   ########.fr       */
+/*   Created: 2021/11/03 10:38:16 by eel-ghan          #+#    #+#             */
+/*   Updated: 2021/11/16 20:54:53 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-#define HEADER_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <libft/libft.h>
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
 
-// void	ft_putstr_fd(char *s, int fd);
-
-#endif
+	i = 0;
+	if (n == 0)
+		return (0);
+	while (i < n - 1 && *(s1 + i) && *(s2 + i) && *(s1 + i) == *(s2 + i))
+		i++;
+	return (*(unsigned char *)(s1 + i) - *(unsigned char *)(s2 + i));
+}

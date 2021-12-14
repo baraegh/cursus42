@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/13 15:49:49 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/14 16:58:01 by eel-ghan         ###   ########.fr       */
+/*   Created: 2021/11/08 13:34:44 by eel-ghan          #+#    #+#             */
+/*   Updated: 2021/11/12 02:08:54 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-#define HEADER_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <libft/libft.h>
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	int	i;
 
-// void	ft_putstr_fd(char *s, int fd);
-
-#endif
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		f(i, s + i);
+		i++;
+	}
+}

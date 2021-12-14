@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/13 15:49:49 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/14 16:58:01 by eel-ghan         ###   ########.fr       */
+/*   Created: 2021/11/08 14:55:01 by eel-ghan          #+#    #+#             */
+/*   Updated: 2021/11/11 12:19:49 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-#define HEADER_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <libft/libft.h>
+void	ft_putnbr_fd(int n, int fd)
+{
+	char	number;
+	long	nb;
 
-// void	ft_putstr_fd(char *s, int fd);
-
-#endif
+	nb = n;
+	if (nb < 0)
+	{
+		nb *= -1;
+		write(fd, "-", 1);
+	}
+	if (nb >= 10)
+		ft_putnbr_fd(nb / 10, fd);
+	number = '0' + (nb % 10);
+	write(fd, &number, 1);
+}

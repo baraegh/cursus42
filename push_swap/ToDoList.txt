@@ -1,0 +1,8 @@
+
+# do nothing if the stack a is already ordered (in ascending order)
+
+# Displays Error\n :
+					
+					@	some arguments are'nt integers
+					@	//		//	   are bigger than an integers
+					@	//		//	   are duplicates

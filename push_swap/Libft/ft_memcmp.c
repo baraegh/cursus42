@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/13 15:49:49 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/14 16:58:01 by eel-ghan         ###   ########.fr       */
+/*   Created: 2021/11/04 10:25:48 by eel-ghan          #+#    #+#             */
+/*   Updated: 2021/11/17 16:49:54 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-#define HEADER_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <libft/libft.h>
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	const unsigned char	*p1;
+	const unsigned char	*p2;
 
-// void	ft_putstr_fd(char *s, int fd);
-
-#endif
+	p1 = s1;
+	p2 = s2;
+	while (n > 0)
+	{
+		if (*p1 != *p2)
+			return (*p1 - *p2);
+		p1++;
+		p2++;
+		n--;
+	}
+	return (0);
+}

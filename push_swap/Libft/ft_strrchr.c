@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/13 15:49:49 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/14 16:58:01 by eel-ghan         ###   ########.fr       */
+/*   Created: 2021/11/03 10:05:41 by eel-ghan          #+#    #+#             */
+/*   Updated: 2021/11/14 16:04:13 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-#define HEADER_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <libft/libft.h>
+char	*ft_strrchr(const char *s, int c)
+{
+	int	len;
 
-// void	ft_putstr_fd(char *s, int fd);
-
-#endif
+	len = 0;
+	while (s[len])
+		len++;
+	while (len >= 0)
+	{
+		if (s[len] == (char)c)
+			return ((char *)(s + len));
+		len--;
+	}
+	return (NULL);
+}

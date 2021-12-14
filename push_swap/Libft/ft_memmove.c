@@ -1,23 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/13 15:49:49 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/14 16:58:01 by eel-ghan         ###   ########.fr       */
+/*   Created: 2021/11/03 14:29:50 by eel-ghan          #+#    #+#             */
+/*   Updated: 2021/11/16 13:47:22 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-#define HEADER_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <libft/libft.h>
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	char		*d;
+	const char	*s;
+	size_t		i;
 
-// void	ft_putstr_fd(char *s, int fd);
-
-#endif
+	d = dst;
+	s = src;
+	if (!dst && !src)
+		return (0);
+	if (d > s)
+	{
+		while (len-- > 0)
+			d[len] = s[len];
+	}
+	else
+	{
+		i = 0;
+		while (i < len)
+		{
+			*(d + i) = *(s + i);
+			i++;
+		}
+	}
+	return (d);
+}

@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/13 15:49:49 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/14 16:58:01 by eel-ghan         ###   ########.fr       */
+/*   Created: 2021/11/09 11:23:17 by eel-ghan          #+#    #+#             */
+/*   Updated: 2021/11/09 13:44:07 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-#define HEADER_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <libft/libft.h>
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*list;
 
-// void	ft_putstr_fd(char *s, int fd);
-
-#endif
+	list = (t_list *) malloc(sizeof(t_list));
+	if (!list)
+		return (0);
+	list->content = content;
+	list->next = NULL;
+	return (list);
+}

@@ -6,41 +6,50 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:45:49 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/15 13:46:20 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/12/16 15:55:22 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	is_valid_argument(int ac, char **av)
+static int is_big_int(int size, char **av)
+{
+	int	i;
+
+	i = 1;
+	while (i < size)
+	{
+		if (ft_atol(av[i]) > INT_MAX || ft_atol(av[i]) < INT_MIN)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	is_valid_argument(int size, char **av)
 {
 	int	i;
 	int	j;
 
-	if (ac < 2)
+	if (size < 2)
 		return (0);
 	i = 1;
-	while (i < ac)
+	while (i < size)
 	{
 		j = 0;
 		while (av[i][j])
 		{
 			if (!ft_isdigit(av[i][j]))
 			{	
-				if(av[i][j++] != '-' && av[i][j]!= '+')
+				if(av[i][j] != '-' && av[i][j]!= '+')
 					return (0);
 			}
 			j++;
 		}
 		i++;
 	}
-	i = 1;
-	while (i < ac)
-	{
-		if (ft_atol(av[i]) > INT_MAX || ft_atol(av[i]) < INT_MIN)
-			return (0);
-		i++;
-	}
+	if (is_big_int(size, av))
+		return (0);
 	return (1);
 }
 

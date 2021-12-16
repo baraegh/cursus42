@@ -8,7 +8,7 @@
             "name": "(lldb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "/Users/eel-ghan/cursus42/get_next_line/a.out",
+            "program": "/Users/eel-ghan/cursus42/push_swap/a.out",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

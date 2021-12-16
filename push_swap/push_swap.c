@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 16:35:30 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/16 18:36:20 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/12/16 23:36:17 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,25 @@ int	main(int ac, char **av)
 		i++;
 	}
 	printf("-------pb------\n");
-	a = push(b, a, ac - 1);
-	printf("%d", b[0]);
-	printf("\n-------a :------\n");
+	a = push(b, a, 5);
+	a = push(b, a, 5);
+	a = push(b, a, 5);
+	// a = push(b, a, 5);
+	// a = push(b, a, 5);
 	i = 0;
-	while (i < ac - 1)
+	while (i < 3)
+	{
+		printf("%d\n", b[i]);
+		i++;
+	}
+	printf("\n-------a:------\n");
+	// b = push(a, b, 5);
+	// b = push(a, b, 5);
+	// b = push(a, b, 5);
+	// b = push(a, b, 5);
+	// b = push(a, b, 5);
+	i = 0;
+	while (i < 3)
 	{
 		printf("%d\n", a[i]);
 		i++;

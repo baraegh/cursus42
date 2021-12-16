@@ -1,0 +1,38 @@
+debug's main : 
+
+int	main()
+	int ac = 6;
+	char *av[6];
+	av[0] = "./a.out";
+	av[1] = "1";
+	av[2] = "23";
+	av[3] = "780";
+	av[4] = "0";
+	av[5] = "21";
+	int	*a;
+	int	*b;
+	int	i;
+	
+	a = check_args(ac, av, a);
+	b = malloc((ac - 1) * sizeof(int));
+	if (!b)
+	{
+		free(a);
+		return (0);
+	}
+	// i = 0;
+	// while (i < ac - 1)
+	// {
+	// 	printf("%d\n", a[i]);
+	// 	i++;
+	// }
+	// printf("-------------\n");
+	swap(b);
+	// i = 0;
+	// while (i < ac - 1)
+	// {
+	// 	printf("%d\n", a[i]);
+	// 	i++;
+	// }
+	return (0);
+}

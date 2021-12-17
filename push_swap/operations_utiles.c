@@ -6,90 +6,31 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:54:36 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/16 23:27:00 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/12/17 23:05:55 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	swap(int *tab)
+void	swap(t_stack *stack)
 {
-    int	tmp;
+    int tmp;
 
-	if (!tab[0] || !tab[1])
-		return ;
-	tmp = tab[0];
-	tab[0] = tab[1];
-	tab[1] = tmp;
+    tmp = stack->array[stack->top];
+    stack->array[stack->top] = stack->array[stack->top - 1];
+    stack->array[stack->top - 1] = tmp;
 }
 
-static int	*ft_intcopy(int *dst, int *src, int size)
+void	push(t_stack *stack, int n)
 {
-	int	i;
-
-	i = 0;
-	while(i < size)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	return (dst);
+    if (stack_is_full(stack))
+        return ;
+    stack->array[++stack->top] = n;
 }
 
-// int		*push(int *dst, int **src, int size)
-// {
-// 	int	*tmp;
-// 	int	i;
-	
-// 	if(size == 1)
-// 	{
-// 		dst = malloc(size * sizeof(int));
-// 		if (!dst)
-// 			return (0);
-// 		dst[0] = *src[0];
-// 	}
-// 	else
-// 	{
-// 		// tmp = (int *)malloc((size - 1) * sizeof(int));
-// 		tmp = (int *)malloc(size(dst) * sizeof(int));
-// 		if (!tmp)
-// 			return(0);
-// 		ft_intcopy(tmp, dst, size - 1);
-// 		dst = (int *)malloc(size * sizeof(int));
-// 		if (!dst)
-// 			return (0);
-// 		dst[0] = *src[0];
-// 		ft_intcopy(dst + 1, tmp, size - 1);
-// 	}1
-// 	tmp = (int *)malloc((size - 1) * sizeof(int));
-// 	ft_intcopy(tmp, src + 1, size - 1);
-// 	src = (int *)malloc((size - 1) * sizeof(int));
-// 	ft_intcopy(src, tmp, size - 1);
-// 	free(tmp);
-// 	return (dst);
-// }
-
-int	*push(int *dst, int *src, int size)
+int	pop(t_stack *stack)
 {
-	int	*tmp;
-	int	i;
-
-	
-	tmp = (int *)malloc((size - 1) * sizeof(int));
-	if (!tmp)
-		return (0);
-	ft_intcopy(tmp, dst, size - 1);
-	dst[0] = src[0];
-	ft_intcopy(dst + 1, tmp, size - 1);
-
-	tmp = (int *)malloc((size - 1) * sizeof(int));
-	if (!tmp)
-		return (0);
-	ft_intcopy(tmp, src + 1, size - 1);
-	src = (int *)malloc((size - 1) * sizeof(int));
-	if (!src)
-		return (0);
-	ft_intcopy(src, tmp, size - 1);
-	free(tmp);
-	return (src);
+    if(stack_is_empty(stack))
+        return (INT_MIN);
+    return (stack->array[stack->top--]);
 }

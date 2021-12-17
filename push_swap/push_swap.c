@@ -6,13 +6,13 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 16:35:30 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/16 23:36:17 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/12/17 23:22:40 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	*check_args(int size, char **av, int *a)
+t_stack	*check_args(int size, char **av, t_stack *stack_a)
 {
 	int	i;
 	int	j;
@@ -22,64 +22,33 @@ int	*check_args(int size, char **av, int *a)
 		ft_putstr_fd("Error\n", 2);
 		exit(0);
 	}
-	a = (int *)malloc((size) * sizeof(int));
-	if (!a)
+	stack_a = ft_create_stack(size);
+	if (!stack_a)
 		return (0);
-	i = 0;
 	j = 1;
-	while (i < size)
-		a[i++] = ft_atoi(av[j++]);
-	if(is_has_duplicate_n(a, size))
+	while (j <= size)
+		push(stack_a, ft_atoi(av[j++]));
+	if(is_has_duplicate_n(stack_a, size))
 	{
 		ft_putstr_fd("Error\n", 2);
-		free(a);
+		free(stack_a);
 		exit(0);
 	}
-	return (a);
+	return (stack_a);
 }
 
 int	main(int ac, char **av)
 {
-	int	*a;
-	int	*b;
-	int	i;
-	
-	a = check_args(ac - 1, av, a);
-	b = (int *)malloc((ac - 1) * sizeof(int));
-	if (!b)
+	t_stack	*stack_a;
+	int	i  = 0; // TO BE DELETED
+
+	stack_a = check_args(ac - 1, av, stack_a);
+	// TO BE DELETED
+	while (i < ac -1)
 	{
-		free(a);
-		return (0);
-	}
-	i = 0;
-	while (i < ac - 1)
-	{
-		printf("%d\n", a[i]);
+		printf("%d\n", stack_a->array[i]);
 		i++;
 	}
-	printf("-------pb------\n");
-	a = push(b, a, 5);
-	a = push(b, a, 5);
-	a = push(b, a, 5);
-	// a = push(b, a, 5);
-	// a = push(b, a, 5);
-	i = 0;
-	while (i < 3)
-	{
-		printf("%d\n", b[i]);
-		i++;
-	}
-	printf("\n-------a:------\n");
-	// b = push(a, b, 5);
-	// b = push(a, b, 5);
-	// b = push(a, b, 5);
-	// b = push(a, b, 5);
-	// b = push(a, b, 5);
-	i = 0;
-	while (i < 3)
-	{
-		printf("%d\n", a[i]);
-		i++;
-	}
+	////////////////
 	return (0);
 }

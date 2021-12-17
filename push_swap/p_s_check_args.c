@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:45:49 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/16 15:55:22 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/12/17 23:13:09 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	is_valid_argument(int size, char **av)
 	return (1);
 }
 
-int	is_has_duplicate_n(int *tab, int size)
+int	is_has_duplicate_n(t_stack *stack, int size)
 {
 	int	i;
 	int	j;
@@ -64,7 +64,7 @@ int	is_has_duplicate_n(int *tab, int size)
 		j = i + 1;
 		while (j < size)
 		{
-			if (tab[i] == tab[j])
+			if (stack->array[i] == stack->array[j])
 				return (1);
 			j++;
 		}

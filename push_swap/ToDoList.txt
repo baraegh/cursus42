@@ -9,5 +9,3 @@
 
 
 # every time u use the push function, u should verify if it return NULL, if it is thec case: free(a);
-
-# use linkedlist as data structure

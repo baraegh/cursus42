@@ -6,18 +6,18 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:45:49 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/17 23:13:09 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/12/18 14:50:47 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-static int is_big_int(int size, char **av)
+static int is_big_int(int ac, char **av)
 {
 	int	i;
 
 	i = 1;
-	while (i < size)
+	while (i < ac)
 	{
 		if (ft_atol(av[i]) > INT_MAX || ft_atol(av[i]) < INT_MIN)
 			return (1);
@@ -26,15 +26,15 @@ static int is_big_int(int size, char **av)
 	return (0);
 }
 
-int	is_valid_argument(int size, char **av)
+int	is_valid_argument(int ac, char **av)
 {
 	int	i;
 	int	j;
 
-	if (size < 2)
+	if (ac < 2)
 		return (0);
 	i = 1;
-	while (i < size)
+	while (i < ac)
 	{
 		j = 0;
 		while (av[i][j])
@@ -48,7 +48,7 @@ int	is_valid_argument(int size, char **av)
 		}
 		i++;
 	}
-	if (is_big_int(size, av))
+	if (is_big_int(ac, av))
 		return (0);
 	return (1);
 }

@@ -6,13 +6,13 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:29:11 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/17 23:19:22 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/12/18 18:05:36 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-static long	ft_result(const char *str, int i, int sign)
+static long	ft_result(const char *str, int i)
 {
 	long	result;
 
@@ -48,7 +48,7 @@ long	int	ft_atol(const char *str)
 	}
 	else if (*(str + i) == '+')
 		i++;
-	return (sign * ft_result(str, i, sign));
+	return (sign * ft_result(str, i));
 }
 
 t_stack	*ft_create_stack(unsigned capacity)
@@ -71,7 +71,7 @@ t_stack	*ft_create_stack(unsigned capacity)
 
 int	stack_is_full(t_stack *stack)
 {
-	return (stack->top == stack->capacity - 1);
+	return ((unsigned)stack->top == stack->capacity - 1);
 }
 
 int	stack_is_empty(t_stack *stack)

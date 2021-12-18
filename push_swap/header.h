@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 15:49:49 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/17 23:13:05 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/12/18 14:18:18 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@
 
 typedef struct s_stack
 {
-    int			top;
-    unsigned	capacity;
+	int			top;
+	unsigned	capacity;
 	int			*array;
-}   t_stack;
+}	t_stack;
 
 long int	ft_atol(const char *str);
 int			is_valid_argument(int ac, char **av);
@@ -40,5 +40,7 @@ int			pop(t_stack *stack);
 t_stack		*ft_create_stack(unsigned capacity);
 int			stack_is_full(t_stack *stack);
 int			stack_is_empty(t_stack *stack);
+void		rotate(t_stack *stack);
+void		rotate_reverse(t_stack *stack);
 
 #endif

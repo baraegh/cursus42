@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 15:49:49 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/18 14:18:18 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/12/20 02:32:53 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,8 @@ int			stack_is_full(t_stack *stack);
 int			stack_is_empty(t_stack *stack);
 void		rotate(t_stack *stack);
 void		rotate_reverse(t_stack *stack);
+void		radix_sort(int *arr, t_stack *stack_a, t_stack *stack_b);
+void		quick_sort(int *arr, int start_i, int end_i);
+void		ft_intcpy(int *dst, int *src, int size);
 
 #endif

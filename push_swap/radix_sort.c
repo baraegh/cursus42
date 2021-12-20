@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 17:59:08 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/20 03:37:08 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/12/20 23:08:56 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ void	counting_sort(int *arr, int sig_digit, int size)
 	while (i >= 0)
 	{
 		output[count[(arr[i] / sig_digit) % 10] - 1] = arr[i];
-		// printf("%d\n", arr[i]); /*TO BE DELETED*/
 		i--;
 	}
 	ft_intcpy(arr, output, size);

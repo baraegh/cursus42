@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:29:11 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/18 18:05:36 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/12/20 20:14:14 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ t_stack	*ft_create_stack(unsigned capacity)
 
 int	stack_is_full(t_stack *stack)
 {
-	return ((unsigned)stack->top == stack->capacity - 1);
+	return (stack->top == stack->capacity - 1);
 }
 
 int	stack_is_empty(t_stack *stack)

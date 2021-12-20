@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 15:49:49 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/20 02:32:53 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/12/20 22:11:55 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@
 
 typedef struct s_stack
 {
-	int			top;
-	unsigned	capacity;
-	int			*array;
+	int	top;
+	int	capacity;
+	int		*array;
 }	t_stack;
 
 long int	ft_atol(const char *str);
 int			is_valid_argument(int ac, char **av);
-int			is_has_duplicate_n(t_stack *stack, int size);
+int			is_has_duplicate_n(int *arr, int size);
 void		swap(t_stack *stack);
 void		push(t_stack *stack, int n);
 int			pop(t_stack *stack);

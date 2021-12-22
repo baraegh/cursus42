@@ -6,13 +6,13 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:45:49 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/20 23:05:57 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/12/22 21:43:11 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-static int is_big_int(int ac, char **av)
+static int	is_big_int(int ac, char **av)
 {
 	int	i;
 
@@ -26,13 +26,11 @@ static int is_big_int(int ac, char **av)
 	return (0);
 }
 
-int	is_valid_argument(int ac, char **av)
+static int	ft_check_args(int ac, char **av)
 {
 	int	i;
 	int	j;
 
-	if (ac < 2)
-		return (0);
 	i = 1;
 	while (i < ac)
 	{
@@ -40,14 +38,26 @@ int	is_valid_argument(int ac, char **av)
 		while (av[i][j])
 		{
 			if (!ft_isdigit(av[i][j]))
-			{	
-				if(av[i][j] != '-' && av[i][j]!= '+' && !ft_isdigit(av[i][j]))
+			{
+				if ((av[i][j] != '-' || av[i][j] != '+')
+				&& !ft_isdigit(av[i][j + 1]))
+					return (0);
+				else if (av[i][j] != '-' && av[i][j] != '+')
 					return (0);
 			}
 			j++;
 		}
 		i++;
 	}
+	return (1);
+}
+
+int	is_valid_argument(int ac, char **av)
+{
+	if (ac < 2)
+		return (0);
+	if (!ft_check_args(ac, av))
+		return (0);
 	if (is_big_int(ac, av))
 		return (0);
 	return (1);

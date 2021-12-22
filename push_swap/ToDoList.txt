@@ -1,20 +1,3 @@
-
-# do nothing if the stack a is already ordered (in ascending order)
-
-# Displays Error\n :
-					
-					@	some arguments are'nt integers
-				****@	//		//	   are bigger than an integers
-					@	//		//	   are duplicates
-
-
-# every time u use the push function, u should verify if it return NULL, if it is the case: free(a);
-
-# sorting negative / positive numbers with radix algorithm
-
-# if args : ++10, ---8 ...
-
-# arr in main should be in the same order of th e stack_a->array
-
-# should fix quik sort algorithm to sort numbers in away that the min element will be
-	at the top of the stack
+# check the return of functions (e.g NULL)
+    if (fun() == NULL)
+        /* code */

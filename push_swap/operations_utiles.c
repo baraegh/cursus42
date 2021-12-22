@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:54:36 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/18 15:16:01 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/12/22 22:05:29 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	swap(t_stack *stack)
 {
-	int tmp;
+	int	tmp;
 
 	tmp = stack->array[stack->top];
 	stack->array[stack->top] = stack->array[stack->top - 1];
@@ -30,7 +30,7 @@ void	push(t_stack *stack, int n)
 
 int	pop(t_stack *stack)
 {
-	if(stack_is_empty(stack))
+	if (stack_is_empty(stack))
 		return (INT_MIN);
 	return (stack->array[stack->top--]);
 }
@@ -52,7 +52,7 @@ void	rotate(t_stack *stack)
 
 void	rotate_reverse(t_stack *stack)
 {
-	int tmp;
+	int	tmp;
 	int	i;
 
 	i = 0;

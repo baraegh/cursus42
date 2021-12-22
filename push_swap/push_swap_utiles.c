@@ -6,13 +6,13 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:29:11 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/20 20:14:14 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/12/22 22:06:36 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-static long	ft_result(const char *str, int i)
+static long	ft_result(char *str, int i)
 {
 	long	result;
 
@@ -28,7 +28,7 @@ static long	ft_result(const char *str, int i)
 	return (result);
 }
 
-long	int	ft_atol(const char *str)
+long	int	ft_atol(char *str)
 {
 	unsigned int	i;
 	int				sign;
@@ -51,10 +51,10 @@ long	int	ft_atol(const char *str)
 	return (sign * ft_result(str, i));
 }
 
-t_stack	*ft_create_stack(unsigned capacity)
+t_stack	*ft_create_stack(unsigned int capacity)
 {
-	t_stack	*stack; 
-	
+	t_stack	*stack;
+
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!stack)
 		return (0);

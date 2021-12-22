@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 22:44:32 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/20 19:39:50 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/12/22 22:07:45 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_partition(int *arr, int start_i, int end_i)
 	int	pivot;
 	int	i;
 	int	j;
-	
+
 	pivot = arr[end_i];
 	j = start_i;
 	i = start_i;
@@ -45,7 +45,7 @@ int	ft_partition(int *arr, int start_i, int end_i)
 
 void	quick_sort(int *arr, int start_i, int end_i)
 {
-	int pivot_i;
+	int	pivot_i;
 
 	if (start_i > end_i)
 		return ;

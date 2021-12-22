@@ -6,32 +6,16 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 17:59:08 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/20 23:08:56 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2021/12/22 22:09:21 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	get_max(int *arr, int size)
-{
-	int	max;
-	int	i;
-
-	max = arr[0];
-	i = 0;
-	while (i < size)
-	{
-		if (arr[i] > max)
-			max = arr[i];
-		i++;
-	}
-	return (max);
-}
-
 void	ft_intcpy(int *dst, int *src, int size)
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < size)
 	{
@@ -40,54 +24,46 @@ void	ft_intcpy(int *dst, int *src, int size)
 	}
 }
 
-void	counting_sort(int *arr, int sig_digit, int size)
+void	ft_sort(t_stack *stack_a, t_stack *stack_b, int num_bit)
 {
-	int	*output;
-	int	*count;
 	int	i;
-	int	count_size;
 
-	output = (int *)malloc(size * sizeof(int));
-	if (!output)
-		exit(0);
-	count = ft_calloc(10, sizeof(int));
-	if(!count)
-	{
-		free(output);
-		exit(0);
-	}
-	count_size = 10;
 	i = 0;
-	while (i < size)
-		count[(arr[i++] / sig_digit) % 10]++;
-	i = 1;
-	while (i < count_size)
+	while (i < stack_a->capacity)
 	{
-		count[i] += count[i - 1];
+		if (((stack_a->array[stack_a->top] >> num_bit) & 1) == 1)
+		{
+			rotate(stack_a);
+			ft_putstr_fd("ra\n", 1);
+		}
+		else
+		{
+			push(stack_b, pop(stack_a));
+			ft_putstr_fd("pb\n", 1);
+		}
 		i++;
 	}
-	i = size - 1;
-	while (i >= 0)
+	while (!stack_is_empty(stack_b))
 	{
-		output[count[(arr[i] / sig_digit) % 10] - 1] = arr[i];
-		i--;
+		push(stack_a, pop(stack_b));
+		ft_putstr_fd("pa\n", 1);
 	}
-	ft_intcpy(arr, output, size);
-	free(output);
-	free(count);
 }
 
-void	radix_sort(int	*arr, t_stack *stack_a, t_stack *stack_b)
+void	radix_sort(t_stack *stack_a, t_stack *stack_b)
 {
-	int max;
-	int	sig_digit;
-	(void) stack_b; /*TO BE DELETED*/
+	int	max;
+	int	max_bits;
+	int	i;
 
-	max = get_max(arr, stack_a->capacity);
-	sig_digit = 1;
-	while (max / sig_digit > 0)
+	max_bits = 0;
+	max = stack_a->top;
+	while ((max >> max_bits) != 0)
+		max_bits++;
+	i = 0;
+	while (i < max_bits)
 	{
-		counting_sort(arr, sig_digit, stack_a->capacity);
-		sig_digit *= 10;
+		ft_sort(stack_a, stack_b, i);
+		i++;
 	}
 }

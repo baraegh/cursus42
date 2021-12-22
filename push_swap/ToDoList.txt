@@ -1,3 +1,6 @@
 # check the return of functions (e.g NULL)
     if (fun() == NULL)
         /* code */
+# when I should use exit()/return()
+
+# when I modify  file does't recompile when I run make command 

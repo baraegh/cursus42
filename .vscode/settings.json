@@ -7,6 +7,22 @@
         "limits.h": "c",
         "libft.h": "c",
         "unistd.h": "c",
-        "stdlib.h": "c"
-    }
+        "stdlib.h": "c",
+        "header.h": "c",
+        "__bit_reference": "c",
+        "algorithm": "c",
+        "bitset": "c",
+        "chrono": "c",
+        "unordered_map": "c",
+        "__hash_table": "c",
+        "__split_buffer": "c",
+        "array": "c",
+        "initializer_list": "c",
+        "iterator": "c",
+        "string": "c",
+        "string_view": "c",
+        "utility": "c",
+        "vector": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }

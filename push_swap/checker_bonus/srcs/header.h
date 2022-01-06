@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 22:56:14 by eel-ghan          #+#    #+#             */
-/*   Updated: 2022/01/05 23:10:24 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2022/01/06 17:26:34 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@
 # include <stdlib.h>
 # include <limits.h>
 # include "Libft/libft.h"
-#include "get_next_line/get_next_line.h"
-/*TO BE DELETED*/
-#include <stdio.h>
-/////////////////
+# include "get_next_line/get_next_line.h"
+
 # define EMPTY -1
 
 typedef struct s_stack

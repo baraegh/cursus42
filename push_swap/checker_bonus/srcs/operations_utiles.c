@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:54:36 by eel-ghan          #+#    #+#             */
-/*   Updated: 2022/01/05 23:17:39 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2022/01/06 14:52:45 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	rotate(t_stack *stack)
 	if (stack_is_empty(stack))
 		return ;
 	i = stack->top;
-	tmp = stack->array[stack->top];
+	tmp = stack->array[i];
 	while (i > 0)
 	{
 		stack->array[i] = stack->array[i - 1];
@@ -62,7 +62,7 @@ void	rotate_reverse(t_stack *stack)
 	if (stack_is_empty(stack))
 		return ;
 	i = 0;
-	tmp = stack->array[0];
+	tmp = stack->array[i];
 	while (i < stack->top)
 	{
 		stack->array[i] = stack->array[i + 1];

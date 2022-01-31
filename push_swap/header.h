@@ -6,19 +6,21 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 15:49:49 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/22 21:32:52 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2022/01/31 21:39:15 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
 
-# define EMPTY -1
-
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
 # include "Libft/libft.h"
+/* TO BE DELETED*/
+#include <stdio.h>
+
+# define EMPTY -1
 
 typedef struct s_stack
 {
@@ -41,5 +43,7 @@ void		rotate_reverse(t_stack *stack);
 void		radix_sort(t_stack *stack_a, t_stack *stack_b);
 void		quick_sort(int *arr, int start_i, int end_i);
 void		ft_intcpy(int *dst, int *src, int size);
+void		is_sorted(int *arr, int size);
+void		sort_five(t_stack *stack_a, t_stack *stack_b, int *arr);
 
 #endif

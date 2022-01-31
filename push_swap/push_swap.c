@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 16:35:30 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/22 22:03:06 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2022/01/31 21:51:43 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,11 @@ static void	ft_sort_stack_a(int ac, t_stack *stack_a,
 	int		*arr_index;
 	int		i;
 
+	if (ac == 6)
+	{
+		sort_five(stack_a, stack_b, arr);
+		exit(0);
+	}
 	arr_index = get_arr_index(arr, ac - 1);
 	if (!arr_index)
 	{
@@ -108,7 +113,10 @@ int	main(int ac, char **av)
 	t_stack	*stack_b;
 	int		*arr;
 
+	if (ac == 1)
+		return (0);
 	arr = check_args(ac, av);
+	is_sorted(arr, ac - 1);
 	stack_a = ft_create_stack(ac - 1);
 	if (!stack_a)
 	{

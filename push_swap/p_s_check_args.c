@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:45:49 by eel-ghan          #+#    #+#             */
-/*   Updated: 2021/12/22 22:54:24 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2022/01/31 17:58:14 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,24 @@ int	is_has_duplicate_n(int *arr, int size)
 		i++;
 	}
 	return (0);
+}
+
+void	is_sorted(int *arr, int size)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < size)
+	{
+		j = i + 1;
+		while (j < size)
+		{
+			if (arr[i] > arr[j])
+				return ;
+			j++;
+		}	
+		i++;
+	}
+	exit(0);
 }

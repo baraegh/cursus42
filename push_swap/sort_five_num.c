@@ -28,6 +28,24 @@ int	get_max(int	*arr, int size)
 	return (max);
 }
 
+int	get_min_pos(t_stack *a)
+{
+	int	i;
+	int	min_i;
+	int	len;
+
+	i = 0;
+	len = a->top + 1;
+	min_i = i;
+	while (i < len)
+	{
+		if (a->array[i] < a->array[min_i])
+			min_i = i;
+		i++;
+	}
+	return (min_i);
+}
+
 void	sort_three(t_stack *stack_a)
 {
 	int	max;
@@ -70,26 +88,52 @@ void	sort_three(t_stack *stack_a)
 	}
 }
 
+void	push_small_num(t_stack **a, t_stack **b, int pos)
+{
+	int	len;
+
+	len = (*a)->top + 1;
+	if (pos == len - 1)
+	{
+		push(*b, pop(*a));
+		ft_putstr_fd("pb\n", 1);
+	} 
+	else if (pos > len / 2)
+	{
+		pos = len - pos;
+		while (pos-- > 0)
+		{
+			rotate_reverse(*a);
+			ft_putstr_fd("rra\n", 1);
+		}
+	}
+	else if (pos <= len / 2)
+	{
+		while (pos-- > 0)
+		{
+			rotate(*a);
+			ft_putstr_fd("ra\n", 1);
+		}
+	}
+}
+
 void	sort_five(t_stack *a, t_stack *b, int *arr)
 {
 	int	i;
+	int	position;
 
 	i = a->capacity - 1;
 	while (i >= 0)
 		push(a, arr[i--]);
-	push(b, pop(a));
-	push(b, pop(a));
-	ft_putstr_fd("pb\npb\n", 1);
+	i = 0;
+	while (i < a->capacity - 3)
+	{
+		position = get_min_pos(a);
+		push_small_num(&a, &b, position);
+		i++;
+	}
 	sort_three(a);
 	push(a, pop(b));
-	ft_putstr_fd("pa\n", 1);
-	if (a->array[a->top] > a->array[a->top - 1])
-	{
-		swap(a);
-		ft_putstr_fd("sa\n", 1);
-	}
-	if ()
-	{
-
-	}
+	push(a, pop(b));
+	ft_putstr_fd("pa\npa\n", 1);
 }

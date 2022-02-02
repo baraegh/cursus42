@@ -6,23 +6,23 @@
 #    By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/12 13:36:07 by eel-ghan          #+#    #+#              #
-#    Updated: 2022/01/31 20:31:46 by eel-ghan         ###   ########.fr        #
+#    Updated: 2022/02/02 21:00:41 by eel-ghan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRCS = push_swap.c libft/libft.a operations_utiles.c p_s_check_args.c \
-		quick_sort.c  radix_sort.c push_swap_utiles.c sort_five_num.c
-
+SRCS = push_swap.c srcs/libft/libft.a srcs/operations_utiles.c srcs/p_s_check_args.c \
+		srcs/quick_sort.c  srcs/radix_sort.c srcs/push_swap_utiles.c \
+		srcs/sort_num.c srcs/push_swap_utiles_2.c srcs/sort_num_utiles.c
 
 CFLAGS	=	-Wall -Wextra -Werror
 
 CC		=	gcc
 
 	
-${NAME} : Libft
-	cd libft/ && make && make clean && cd ..
+${NAME} :
+	cd srcs && cd Libft/ && make && make clean && cd .. && cd ..
 	${CC} ${CFLAGS} -o ${NAME} ${SRCS}
 
 all: ${NAME}

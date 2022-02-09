@@ -8,5 +8,5 @@ this repository represent a collective of school's projects (developed at [1337]
 - [ft_printf](ft_printf)
 - [get_next_line](get_next_line)
 - [push_swap](push_swap)
-- [FDF](github.com/baraegh/Fdf)
+- [FDF](https://github.com/baraegh/Fdf)
 - Upcoming projects...

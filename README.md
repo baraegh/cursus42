@@ -1,5 +1,3 @@
-# My school 🏫
-![1337](https://user-images.githubusercontent.com/46541419/147684033-44031ff9-3d8c-4c83-ab92-8d186a47d84c.png)
 # about 1337 ℹ️
 Soon...
 # 42cursus's projects 💻

@@ -8,4 +8,5 @@ this repository represent a collective of school's projects (developed at [1337]
 - [push_swap](push_swap)
 - [FDF](https://github.com/baraegh/Fdf)
 - [Pipex](https://github.com/baraegh/pipex)
+- [Philosophers](https://github.com/baraegh/Philosophers)
 - Upcoming projects...

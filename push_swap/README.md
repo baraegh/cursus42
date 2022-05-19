@@ -40,6 +40,8 @@ the goal is to Write a program named checker that takes as an argument the stack
 <img width="602" alt="Screen Shot 2022-03-09 at 4 49 40 PM" src="https://user-images.githubusercontent.com/46541419/157477700-90f12c29-a802-4837-b2e4-abd7a4e86d3e.png">
 
 ## ressources:
+- [Stack in c (1)](https://www.geeksforgeeks.org/stack-data-structure-introduction-program/)
+- [Stack in c (2)](https://www.youtube.com/watch?v=A4sRhuGkRb0&t=706s)
 - [Big-O Complexity Chart](https://www.bigocheatsheet.com/)
 - [Radix sort](https://www.geeksforgeeks.org/radix-sort/)
 - [Quik sort](https://www.geeksforgeeks.org/quick-sort/)

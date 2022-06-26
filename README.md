@@ -9,4 +9,5 @@ this repository represent a collective of school's projects (developed at [1337]
 - [FDF](https://github.com/baraegh/Fdf)
 - [Pipex](https://github.com/baraegh/pipex)
 - [Philosophers](https://github.com/baraegh/Philosophers)
+- [Net_Practice](https://github.com/baraegh/Net_Practice)
 - Upcoming projects...
